@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<TITLE>3F -- a bell designer</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff>
+<div style="width:6.5in">
+
+
+<P>  The 3F bell designer is inspired by Jean-Claude Risset's early insight that
+the inharmonic spectra of bells can be considered as chords and used as material
+for musical composition; chords and spectra are only different manifestations of
+a single phenomenon.  Risset's early description of a computer music "bell"
+sound is widely available now (for instance in Dodge and Jerse, <I>Computer
+Music</I>) as are his writings about the use of inharmonic spectra in
+composition.
+
+<P> Another inspiration is Philippe Manoury's piece, <i>Jupiter</i>, in
+which, in sections 6 and 12, an oscillator bank plays frequencies that are
+derived from theoretical FM spectra given various carrier and modulation
+frequencies.  This technique also strives to generate believable and listenable
+spectra from generating frequencies provided by a composer or other musician.
+
+<P> The 3F bell designer attempts to choose partials to make up an inharmonic
+spectrum that carries an internal harmony controlled by specifying three
+component pitches, so that the spectra so created will mix pleasingly with
+harmonic, instrumental sounds played at those pitches.  The three pitches are
+converted into frequencies (call them f, g, and h) whose linear combinations
+(f+g, f-2g+3h, etc) become a spectrum.  Because spectra created in this way can
+easily become overly dense, a random percentage (between 3 and 100 percent) of
+these frequencies are chosen, counting upward from low-order combinations to
+higher-order ones, until a fixed number of frequencies is obtained.
+
+<P> Although the original three pitches themselves will not in general be
+prominent in the mixture, they will occur in many possible ways as the
+difference between two frequencies in the calculated spectrum; this is what
+makes the resulting sounds fit in with the original pitches, despite the very
+inharmonic nature of the resulting sounds.
+
+<P> The patch runs in Pd version 0.41 or newer. Select an output level (the dB
+control in the output~ box, top right; set to 70 or 80 to start with). Then
+click on any of the "examples" boxes and you should hear the sounds.
+
+<P> To make your own sounds, enter numbers for the five parameters, named pit1,
+pit2, pit3, prob, and seed.  The first three specify (in MIDI units) the three
+frequencies from which to build the spectra.  The "prob" parameter controls the
+probability of hearing any individual calculated component, in percent; if set
+at 100, the first 16 computed partials will be taken, if 50, each one will be
+taken with probability 1/2 (and other, later candidates will be taken to arrive
+at 16 components in all).  The "seed" is 0 or a positive number.  If it is
+positive, it will seed the random choices so that the same spectrum comes out
+each time; if zero, the seed will be replaced randomly each time.
+
+<P> To actually make the sound, either click on the "trigger" button or turn on
+the "auto" toggle, so that any changes in parameters automatically recalculate
+and replay the spectrum.
+
+<P> The toggle "hear pitches" at center top allows you to hear the three
+component frequencies; these should be reminiscent of the "bell" sounds but at
+the same time very different.
+
+<P> A pair of pitch shifters is provided to soften the sounds up -- you'll need
+this if you are spending more than a couple of minutes searching for sounds. 
+They are turned on by default.
+
+</BODY>
+</HTML>
